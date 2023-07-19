@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Thủy Lợi TKB</string>
+    <string-array name="schedule_option">
+        <item>Lịch Học Hôm Nay</item>
+        <item>Lịch Học Ngày Mai</item>
+        <item>Lịch Học Tuần Này</item>
+        <item>Toàn Bộ Lịch Học</item>
+    </string-array>
+    <string-array name="quotes">
+        <item>Hỏi một câu sẽ chỉ dốt chốc lát nhưng nếu không hỏi thì sẽ dốt cả đời.</item>
+        <item>Đầu tư vào tri thức luôn là khoản đầu tư đúng đắn. Cố gắng lên nào, rồi bạn sẽ làm được.</item>
+        <item>Học thầy, học bạn, vô vạn phong lưu.</item>
+        <item>Học tập là hạt giống của kiến thức, kiến thức là hạt giống của hạnh phúc.</item>
+        <item>Chúng ta có thể bị thất bại nhiều lần nhưng đừng để bị đánh bại.</item>
+        <item>Nếu bạn là con gái, bạn có yêu một chàng trai thiếu ý chí, thiếu kiến thức như chính bạn không?</item>
+        <item>Thứ chênh lệch ít nhất giữa người với người là chỉ số thông minh, chênh lệch lớn nhất là lòng kiên trì.</item>
+        <item>Mua thức ăn có thể không cần đến môn Toán cao cấp, nhưng học tốt môn Toán cao cấp sẽ quyết định xem bạn mua thức ăn ở đâu.</item>
+        <item>Các em chính là người có thể thay đổi cuộc đời của mình. Cuộc đời của các em trong tương lai như thế nào đều bắt đầu từ ngày hôm nay.</item>
+        <item>Tri thức và trí tuệ của con người đâu phải có sẵn. Không ai sinh ra trên đời đều giỏi ngay cả, mà đó là quá trình dài của sự tích lũy, học hỏi từng chút mỗi ngày. Cố gắng lên nào chàng trai.</item>
+        <item>Học tập chính là chìa khóa để bạn có thể đứng ở nơi cao hơn và nhìn xuống những người đã coi thường mình.</item>
+        <item>Cách trả thù lý tưởng nhất là biến mình trở nên xuất sắc và vĩ đại hơn họ. Đừng ngại cố gắng mỗi ngày.</item>
+        <item>Đừng cảm thấy xấu hổ khi mình không biết điều gì đó bởi kiến thức là vô vàn và chẳng ai dám tự đắc rằng mình biết tuốt. Hãy chỉ xấu hổ khi mà bạn không cố gắng học mỗi ngày.</item>
+        <item>Mẹ bạn đã vất vả mấy chục năm rồi, chẳng lẽ bây giờ bạn muốn bà vất vả thêm mấy chục năm nữa? Tỉnh táo và thay đổi ngay từ lúc này.</item>
+        <item>Chàng trai à, dù có khó khăn như thế nào cũng đừng bao giờ từ bỏ. Cố gắng học tập mỗi ngày, tích lũy kiến thức nhỏ nhất mỗi ngày rồi cuối cùng mẹ tin con sẽ làm được.</item>
+        <item>Cuộc đời của các em do chính các em quyết định và là quyết định từ ngay bây giờ khi mà còn ngồi trên ghế nhà trường. Đừng bao giờ từ bỏ sự cố gắng, hãy luôn nỗ lực hết mình và học tập chăm chỉ, hăng say nhất có thể nhé.</item>
+        <item>Học - học nữa - học mãi (Lê-Nin).</item>
+        <item>Kiến thức có đầu nhưng không có cuối (Geeta S. Iyengar).</item>
+        <item>Hãy sống như ngày mai anh chết. Hãy học như anh sẽ sống mãi mãi (Mahatma Gandhi).</item>
+        <item>Bạn càng đọc nhiều, bạn càng biết nhiều. Bạn càng học nhiều, bạn càng đi nhiều (Dr Seuss).</item>
+        <item>Chính những gì chúng ta đã biết thường ngăn cản chúng ta học hỏi (Claude Bernard).</item>
+        <item>Học vấn do người siêng năng đạt được, tài sản do người tinh tế sở hữu, quyền lợi do người dũng cảm nắm giữ, thiên đường do người lương thiện xây dựng. – Franklin.</item>
+        <item>Ai học mà không suy nghĩ, thì hư! Ai suy nghĩ mà không học hỏi thì sẽ gặp nguy hiểm lớn. – Khuyết danh</item>
+        <item>Bạn không học cách đi bộ theo các quy tắc. Bạn học bằng cách làm, và bằng cách vượt qua. – Richard Branson</item>
+        <item>Giáo dục là vũ khí mạnh nhất mà người ta có thể sử dụng để thay đổi cả thế giới. – N. Mandela</item>
+        <item>“Học tập là hạt giống của kiến thức, kiến thức là hạt giống của hạnh phúc.” Ngạn ngữ Gruzia</item>
+        <item>Đọc sách không bằng suy ngẫm. Học trường không hơn được trường đời. – Immanuel Kant.</item>
+        <item>Nhà trường chỉ cho chúng ta chiếc chìa khóa tri thức, học trong cuộc sống là công việc cả đời.– Bill Gates.</item>
+        <item>Có học vấn không có đạo đức như một kẻ xấu; có đạo đức không có học vấn như một người thô bỉ.-Roosevelt (Mỹ).</item>
+        <item>Hãy học từ sai lầm của người khác. Bạn sẽ không bao giờ sống đủ lâu để phạm phải tất cả sai lầm.</item>
+        <item>Trí tuệ không phải là sản phẩm của việc học mà là của nỗ lực cả đời để có được nó (Albert Einstein).</item>
+        <item>Nói với tôi và tôi quên, dạy tôi và tôi có thể nhớ, liên quan đến tôi và tôi học (Benjamin Franklin).</item>
+        <item>Toàn bộ mục đích của giáo dục là biến gương thành cửa sổ (Sydney J. Harris).</item>
+        <item>Mục đích của việc học là tăng trưởng, và tâm trí của chúng ta, không giống như cơ thể, có thể tiếp tục phát triển khi chúng ta tiếp tục sống (Mortimer Adler).</item>
+        <item>Những điều chúng ta biết chỉ là giọt nước. Những điều chúng ta không biết là cả một đại dương (Isaac Newton).</item>
+        <item>Bạn có thể dạy một học sinh một bài học trong một ngày; nhưng nếu bạn có thể dạy anh ta học bằng cách tạo ra sự tò mò, anh ta sẽ tiếp tục quá trình học tập cho đến khi còn sống (Clay P. Bedford).</item>
+        <item>Việc học không đạt được một cách tình cờ. Nó phải được tìm kiếm với lòng nhiệt thành và tham dự với sự siêng năng (Abigail Adams).</item>
+        <item>Giáo dục là tấm hộ chiếu cho tương lai, cho ngày mai thuộc về những người chuẩn bị cho nó ngày hôm nay (Malcolm X).</item>
+    </string-array>
+</resources>
