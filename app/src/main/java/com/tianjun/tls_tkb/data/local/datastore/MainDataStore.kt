@@ -4,6 +4,7 @@ import android.content.Context
 import android.security.keystore.KeyGenParameterSpec
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -24,13 +25,10 @@ class MainDataStore @Inject constructor(
     private val secureHelper: SecureHelper
 ){
 
-    class CanNotGetPreferencesException : Exception("CanNotGetPreferencesException")
-
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = PREFERENCES_NAME)
 
     companion object{
         const val PREFERENCES_NAME = "main_preferences"
-        val SSL_KEY = stringPreferencesKey("ssl_key")
         val HOST_PORT = stringPreferencesKey("host_port")
         val HOST_NAME = stringPreferencesKey("host_name")
         val STUDENT_ID = stringPreferencesKey("student_id")
@@ -47,16 +45,21 @@ class MainDataStore @Inject constructor(
         }
     }
 
-    private fun <T>getFlowPreference(preferencesKey : Preferences.Key<T>, defaultValue : T?, processor : (suspend (T) -> T)?) : Flow<T> =
+    private fun <T>getFlowPreference(preferencesKey : Preferences.Key<T>, defaultValue : T?, processor : (suspend (T) -> T)?) : Flow<T?> =
         context.dataStore.data
             .catch {
                 emitEmpty(it)
             }
             .map {
-                it[preferencesKey]?.run { processor?.invoke(this) ?: this } ?: defaultValue ?: throw CanNotGetPreferencesException()
+                it[preferencesKey]?.run { processor?.invoke(this) ?: this } ?: defaultValue
             }
 
-    val sslKey = getFlowPreference(SSL_KEY, null,null)
+    suspend fun <T>saveValue(preferenceKey : Preferences.Key<T>, t : T){
+        context.dataStore.edit {
+            it[preferenceKey] = t
+        }
+    }
+
     val hostPort = getFlowPreference(HOST_PORT, BuildConfig.HOST_PORT,null)
     val hostName = getFlowPreference(HOST_NAME, BuildConfig.HOST_NAME,null)
     val studentId = getFlowPreference(STUDENT_ID, null,null)

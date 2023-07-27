@@ -3,7 +3,7 @@
     <style name="Theme.TLS_TKB" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="fontFamily">@font/be_vietnam_pro_regular</item>
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">#5E6063</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

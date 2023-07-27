@@ -14,11 +14,12 @@
         android:padding="10dp"
         >
         <TextView
+            android:id="@+id/room_li_tv_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="SG-902"
             android:padding="5dp"
-            android:layout_weight="0.3"
+            android:layout_weight="0.5"
             />
 
 
@@ -29,12 +30,13 @@
             />
 
         <TextView
+            android:id="@+id/room_li_tv_id"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="789-456-123"
             android:padding="5dp"
             android:gravity="end|center_vertical"
-            android:layout_weight="0.6"
+            android:layout_weight="0.5"
             />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -28,6 +28,7 @@
 
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -91,13 +92,13 @@
                     <androidx.appcompat.widget.SwitchCompat
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:layout_weight="1"
-                        />
+                        android:layout_weight="1" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/settings_f_btn_download_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -135,6 +136,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/settings_f_btn_edit_hostname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -158,20 +160,22 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="8"
-                        android:orientation="vertical"
                         android:gravity="center_vertical"
-                        >
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:text="Tùy chỉnh máy chủ"
                             android:textSize="15sp" />
+
                         <TextView
+                            android:id="@+id/settings_f_tv_hostname_value"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
-                            android:text="https://sinhvien1.tlu.edu.vn"
+                            android:text="---"
                             android:textSize="12sp" />
                     </LinearLayout>
 
@@ -183,6 +187,99 @@
                         android:src="@drawable/ic_arrow_16x16_black" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/settings_f_btn_edit_port"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_swap_horiz_16x16_black" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Tùy chỉnh cổng"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/settings_f_tv_host_port_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="---"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_arrow_16x16_black" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:weightSum="10">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_lock_16x16_black" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:gravity="center_vertical"
+                        android:text="Xác thực chứng chỉ"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_arrow_16x16_black" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -220,7 +317,6 @@
                         android:src="@drawable/ic_arrow_16x16_black" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
 
 
             <androidx.cardview.widget.CardView
@@ -263,5 +359,30 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/settings_f_fl_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="18dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <include
+                android:id="@+id/settings_f_inc_loading"
+                layout="@layout/layout_loading" />
+        </LinearLayout>
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

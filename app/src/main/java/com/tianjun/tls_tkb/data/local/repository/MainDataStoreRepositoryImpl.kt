@@ -10,14 +10,16 @@ import javax.inject.Singleton
 class MainDataStoreRepositoryImpl @Inject constructor(
     private val mainDataStore: MainDataStore
 ) : MainDataStoreRepository {
+    override fun getHostPort(): Flow<String?> = mainDataStore.hostPort
+    override suspend fun setHostPort(value: String) = mainDataStore.saveValue(MainDataStore.HOST_PORT, value)
 
-    override fun getSSLKey(): Flow<String> = mainDataStore.sslKey
+    override fun getHostName(): Flow<String?> = mainDataStore.hostName
+    override suspend fun setHostName(value: String) = mainDataStore.saveValue(MainDataStore.HOST_NAME, value)
 
-    override fun getHostPort(): Flow<String> = mainDataStore.hostPort
+    override fun getStudentID(): Flow<String?> = mainDataStore.studentId
+    override suspend fun setStudentID(value: String) = mainDataStore.saveValue(MainDataStore.STUDENT_ID, value)
 
-    override fun getHostName(): Flow<String> = mainDataStore.hostName
+    override fun getStudentPassword(): Flow<String?> = mainDataStore.studentPassword
+    override suspend fun setStudentPassword(value: String) = mainDataStore.saveValue(MainDataStore.STUDENT_PASSWORD, value)
 
-    override fun getStudentID(): Flow<String> = mainDataStore.studentId
-
-    override fun getStudentPassword(): Flow<String> = mainDataStore.studentPassword
 }
