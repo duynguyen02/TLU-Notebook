@@ -1,5 +1,6 @@
 package com.tianjun.tls_tkb.presentation.main.settings
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,10 +39,22 @@ class SettingsFragment : Fragment() {
         binding.settingsFBtnEditHostname.setOnClickListener { openChangeHostnameDialog() }
         binding.settingsFBtnEditPort.setOnClickListener { openChangePortDialog() }
         binding.settingsFBtnDownloadData.setOnClickListener { openDownloadDataDialog() }
+        binding.settingsFBtnDeleteAllData.setOnClickListener { openConfirmDeleteAllDataDiaLog() }
 
         observeSetup()
 
         return binding.root
+    }
+
+    private fun openConfirmDeleteAllDataDiaLog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Cảnh báo")
+            .setMessage("Bạn có muốn xóa toàn bộ dữ liệu (bao gồm lịch học, tài khoản đăng nhập, các cấu hình,...)?")
+            .setPositiveButton("Có"
+            ) { _, _ -> settingsViewModel.deleteAllData() }
+            .setNegativeButton("Không", null)
+            .create()
+            .show()
     }
 
     private fun openDownloadDataDialog() {
