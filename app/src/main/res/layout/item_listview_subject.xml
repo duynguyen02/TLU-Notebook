@@ -16,6 +16,7 @@
         android:padding="10dp"
         >
         <TextView
+            android:id="@+id/subject_ilv_tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="An toàn và bảo mật thông tin"
@@ -23,18 +24,21 @@
             android:textStyle="bold"
             />
         <TextView
+            android:id="@+id/subject_ilv_tv_period"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tiết 7 - Tiết 9"
             android:gravity="center_vertical"
             app:drawableEndCompat="@drawable/ic_timeline_16x16_black" />
         <TextView
+            android:id="@+id/subject_ilv_tv_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="9:30 AM - 12:00 PM"
             android:gravity="center_vertical"
             app:drawableEndCompat="@drawable/ic_access_time_16x16_black" />
         <TextView
+            android:id="@+id/subject_ilv_tv_room"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="501-SG"

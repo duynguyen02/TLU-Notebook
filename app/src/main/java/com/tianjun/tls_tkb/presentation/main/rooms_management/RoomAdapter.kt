@@ -12,25 +12,25 @@ import com.tianjun.tls_tkb.domain.model.Room
 import javax.inject.Inject
 
 class RoomAdapter @Inject constructor(
-    private val onItemSelectedListener : ((room : Room) -> Unit)?,
-    private val onItemUnSelectedListener : ((room : Room) -> Unit)?,
-    private val onItemClickListener : ((room : Room) -> Unit)?
+    private val onItemSelectedListener: ((room: Room) -> Unit)?,
+    private val onItemUnSelectedListener: ((room: Room) -> Unit)?,
+    private val onItemClickListener: ((room: Room) -> Unit)?
 ) : ListAdapter<Room, RoomAdapter.ItemHolder>(ItemDiffCallback()) {
 
     private var selectMode = false
     private var selectedRooms = HashSet<Room>()
 
     class ItemDiffCallback : DiffUtil.ItemCallback<Room>() {
-        override fun areItemsTheSame(oldItem: Room, newItem: Room): Boolean {
-            return oldItem.id == newItem.id
-        }
-        override fun areContentsTheSame(oldItem: Room, newItem: Room): Boolean {
-            return oldItem == newItem
-        }
+        override fun areItemsTheSame(oldItem: Room, newItem: Room): Boolean =
+            oldItem.id == newItem.id
+
+        override fun areContentsTheSame(oldItem: Room, newItem: Room): Boolean =
+            oldItem == newItem
     }
 
-    inner class ItemHolder(private val binding : ItemListviewRoomBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(room: Room){
+    inner class ItemHolder(private val binding: ItemListviewRoomBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(room: Room) {
 
             binding.root.setOnClickListener {
                 if (selectMode) {
@@ -41,8 +41,7 @@ class RoomAdapter @Inject constructor(
                         onItemSelectedListener?.let { it1 -> it1(room) }
                         binding.root.setCardBackgroundColor(Color.LTGRAY)
                     }
-                }
-                else{
+                } else {
                     onItemClickListener?.let { it1 -> it1(room) }
                 }
             }
@@ -60,7 +59,13 @@ class RoomAdapter @Inject constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder =
-        ItemHolder(ItemListviewRoomBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        ItemHolder(
+            ItemListviewRoomBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
 
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
@@ -68,16 +73,16 @@ class RoomAdapter @Inject constructor(
         holder.bind(room)
     }
 
-    fun setSelectMode(active : Boolean){
+    fun setSelectMode(active: Boolean) {
         selectMode = active
         val selectedIndexes = selectedRooms.map { currentList.indexOf(it) }
-        if(!selectMode){
+        if (!selectMode) {
             selectedRooms.clear()
             selectedIndexes.forEach { notifyItemChanged(it) }
         }
     }
 
-    fun setSelectedItems(selectedSet: Set<Room>){
+    fun setSelectedItems(selectedSet: Set<Room>) {
         selectedRooms = HashSet(selectedSet)
         selectedRooms.forEach {
             val position = currentList.indexOf(it)

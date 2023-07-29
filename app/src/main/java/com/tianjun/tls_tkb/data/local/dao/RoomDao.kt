@@ -11,6 +11,9 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface RoomDao {
+    @Query("SELECT EXISTS(SELECT 1 FROM roomTable WHERE id = :id)")
+    fun checkIfIdExists(id: String): Boolean
+
     @Query("SELECT * FROM roomTable")
     fun getAllRooms(): Flow<List<RoomEnt>>
 
@@ -25,4 +28,7 @@ interface RoomDao {
 
     @Delete
     fun deleteRoom(roomEnt: RoomEnt)
+
+    @Query("DELETE from roomTable")
+    fun deleteAllRooms()
 }

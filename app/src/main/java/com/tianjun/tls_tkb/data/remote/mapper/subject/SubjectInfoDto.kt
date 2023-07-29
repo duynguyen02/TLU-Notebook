@@ -64,6 +64,7 @@ data class SubjectInfoDto(
                 Timetable(
                     it?.id,
                     it?.roomName,
+                    it?.weekIndex,
                     it?.startDate,
                     it?.endDate,
                     it?.startHour?.name,

@@ -46,7 +46,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
-                android:src="@drawable/res_logo" />
+                android:src="@drawable/logo" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -55,11 +55,12 @@
                 android:text="@string/app_name" />
 
             <TextView
+                android:id="@+id/settings_f_tv_version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="1.0.0" />
+                android:text="" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -260,45 +261,6 @@
                         android:layout_height="20dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:src="@drawable/ic_lock_16x16_black" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="8"
-                        android:gravity="center_vertical"
-                        android:text="Xác thực chứng chỉ"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_arrow_16x16_black" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:weightSum="10">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:src="@drawable/ic_delete_16x16_black" />
 
                     <TextView
@@ -307,44 +269,6 @@
                         android:layout_weight="8"
                         android:gravity="center_vertical"
                         android:text="Xóa dữ liệu"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_arrow_16x16_black" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:weightSum="10">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:src="@drawable/ic_info_16x16_black" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="8"
-                        android:gravity="center_vertical"
-                        android:text="Thông tin"
                         android:textSize="15sp" />
 
                     <ImageView

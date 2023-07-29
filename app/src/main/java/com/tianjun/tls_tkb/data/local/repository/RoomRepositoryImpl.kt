@@ -19,9 +19,12 @@ class RoomRepositoryImpl @Inject constructor(
         it?.let { roomEnt -> RoomEnt.dtoToRoom(roomEnt) }
     }
 
+    override fun isIdExists(id: String): Boolean = roomDao.checkIfIdExists(id)
+
     override suspend fun addRoom(room: Room) = roomDao.addRoom(RoomEnt.roomToDto(room))
 
     override suspend fun updateRoom(room: Room) = roomDao.updateRoom(RoomEnt.roomToDto(room))
 
     override suspend fun deleteRoom(room: Room) = roomDao.deleteRoom(RoomEnt.roomToDto(room))
+    override suspend fun deleteAllRooms() = roomDao.deleteAllRooms()
 }

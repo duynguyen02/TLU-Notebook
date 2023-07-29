@@ -25,13 +25,7 @@ class RoomsManagementViewModel @Inject constructor(
     val selectedRooms : LiveData<HashSet<Room>>
         get() = _selectedRooms
 
-    /**
-     * Toggles the 'editable' state and performs related actions based on the new state.
-     * If the current state of 'editable' is true, it will be set to false, and vice versa.
-     * Additionally, if the new 'editable' state is false, the list of selected rooms will be cleared.
-     */
     fun changeEditable() {
-        // Toggle the 'editable' state by negating its current value.
         _editable.value = !(_editable.value!!)
         _selectedRooms.value?.clear()
     }
@@ -48,6 +42,7 @@ class RoomsManagementViewModel @Inject constructor(
 
 
     fun getRooms() = roomRepository.getAllRooms().asLiveData()
+    fun isIdExists(id : String) = roomRepository.isIdExists(id)
     fun addRoom(room: Room) {
         viewModelScope.launch(Dispatchers.IO){
             roomRepository.addRoom(room)

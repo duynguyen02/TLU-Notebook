@@ -9,7 +9,7 @@ import com.tianjun.tls_tkb.domain.model.Timetable
 
 @Entity(
     tableName = "timetableTable", primaryKeys = ["timetableId"],
-    indices = [Index(value = ["subjectInfoId"], unique = true)],
+    indices = [Index(value = ["subjectInfoId"])],
     foreignKeys = [
         ForeignKey(
             entity = SubjectInfoEnt::class,
@@ -25,6 +25,8 @@ data class TimeTableEnt(
     val timetableId: Int?,
     @ColumnInfo(name = "roomName")
     val roomName: String?,
+    @ColumnInfo(name = "weekIndex")
+    val weekIndex: Int?,
     @ColumnInfo(name = "startDate")
     val startDate: Long?,
     @ColumnInfo(name = "endDate")
@@ -48,6 +50,7 @@ data class TimeTableEnt(
         fun timetableToEnt(timetable: Timetable) = TimeTableEnt(
             timetable.id,
             timetable.roomName,
+            timetable.weekIndex,
             timetable.startDate,
             timetable.endDate,
             timetable.startHourName,

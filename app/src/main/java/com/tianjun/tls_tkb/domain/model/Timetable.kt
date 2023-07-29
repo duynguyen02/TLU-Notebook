@@ -3,6 +3,7 @@ package com.tianjun.tls_tkb.domain.model
 data class Timetable(
     val id: Int?,
     val roomName: String?,
+    val weekIndex : Int?,
     val startDate: Long?,
     val endDate: Long?,
     val startHourName : String?,

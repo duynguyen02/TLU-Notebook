@@ -16,10 +16,10 @@
         android:layout_marginTop="10dp"
         >
         <TextView
+            android:id="@+id/week_subjects_ilv_tv_week_index"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="THỨ HAI"
-            android:padding="5dp"
             android:gravity="center"
             android:textStyle="bold"
             android:textSize="18sp"
@@ -27,8 +27,10 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/week_subjects_ilv_rv_schedules"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_listview_subject"
         />
 

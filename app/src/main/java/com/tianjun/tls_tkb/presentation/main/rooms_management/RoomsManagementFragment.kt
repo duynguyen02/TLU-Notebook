@@ -1,5 +1,7 @@
 package com.tianjun.tls_tkb.presentation.main.rooms_management
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -35,6 +37,13 @@ class RoomsManagementFragment : Fragment() {
     ): View {
         binding = FragmentRoomsManagementBinding.inflate(inflater, container, false)
 
+        initComponents()
+        observeSetup()
+
+        return binding.root
+    }
+
+    private fun initComponents(){
         isEditable = roomsManagementViewModel.editable.value ?: false
 
         roomAdapter = RoomAdapter({
@@ -48,7 +57,15 @@ class RoomsManagementFragment : Fragment() {
         binding.roomMngFRvRooms.adapter = roomAdapter
 
         binding.roomMngBtnEdit.setOnClickListener { roomsManagementViewModel.changeEditable() }
+    }
 
+    private fun observeSetup(){
+        editModeObserveSetup()
+        selectedRoomsObserveSetup()
+        roomsObserveSetup()
+    }
+
+    private fun roomsObserveSetup() {
         roomsManagementViewModel.getRooms().observe(viewLifecycleOwner) { rooms ->
             roomAdapter.submitList(rooms)
             binding.roomMngEtHeader.setOnClickListener {
@@ -57,10 +74,15 @@ class RoomsManagementFragment : Fragment() {
                 }
             }
         }
+    }
 
+    private fun selectedRoomsObserveSetup() {
         roomsManagementViewModel.selectedRooms.observe(viewLifecycleOwner) { selectedRooms ->
             roomAdapter.setSelectedItems(selectedRooms)
         }
+    }
+
+    private fun editModeObserveSetup(){
 
         val addIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_add_24x24_black)
         val deleteIcon =
@@ -82,7 +104,7 @@ class RoomsManagementFragment : Fragment() {
             }
             isEditable = editable
         }
-        return binding.root
+
     }
 
     private fun deleteRoomsDialogConfirm() {
@@ -138,9 +160,14 @@ class RoomsManagementFragment : Fragment() {
                 dialogBinding.addRoomDEtRoomName.text.toString()
             )
             if (mode == Mode.ADD){
-                roomsManagementViewModel.addRoom(finalRoom)
-                dialogBinding.addRoomDEtRoomName.setText("")
-                dialogBinding.addRoomDEtRoonId.setText("")
+                if (!roomsManagementViewModel.isIdExists(finalRoom.id)){
+                    roomsManagementViewModel.addRoom(finalRoom)
+                    dialogBinding.addRoomDEtRoomName.setText("")
+                    dialogBinding.addRoomDEtRoonId.setText("")
+                }
+                else{
+                    Toast.makeText(requireContext(), "ID đã tồn tại!", Toast.LENGTH_SHORT).show()
+                }
             }
             else{
                 roomsManagementViewModel.updateRoom(finalRoom)
@@ -159,16 +186,52 @@ class RoomsManagementFragment : Fragment() {
             .setItems(options) { _, which ->
             when (which) {
                 0 -> {
-                    TODO()
+                    openChooseMeetingApp(room)
                 }
                 1 -> {
                     openRoomInfoDiaLog(Mode.UPDATE, room)
                 }
                 2 -> {
-                    TODO()
+                    roomsManagementViewModel.deleteRoom(room)
                 }
             }
         }.create().show()
+    }
+
+    private fun openChooseMeetingApp(room: Room) {
+        val options = arrayOf("Zoom", "Google Meet")
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Vui lòng chọn ứng dụng")
+            .setItems(options) { _, which ->
+                when (which) {
+                    0 -> {
+                        openZoom(room)
+                    }
+                    1 -> {
+                        openGoogleMeet(room)
+                    }
+                }
+            }.create().show()
+    }
+
+    private fun openGoogleMeet(room: Room) {
+        val url = "https://meet.google.com/${room.id}"
+        Intent(Intent.ACTION_VIEW).apply {
+            data = Uri.parse(url)
+
+        }.also {
+            requireContext().startActivity(it)
+        }
+    }
+
+    private fun openZoom(room: Room) {
+        val url = "https://us02web.zoom.us/j/${room.id}"
+        Intent(Intent.ACTION_VIEW).apply {
+            data = Uri.parse(url)
+
+        }.also {
+            requireContext().startActivity(it)
+        }
     }
 
 }
