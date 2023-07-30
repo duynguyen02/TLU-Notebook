@@ -156,8 +156,8 @@ class RoomsManagementFragment : Fragment() {
                 return@setOnClickListener
             }
             val finalRoom =  Room(
-                dialogBinding.addRoomDEtRoonId.text.toString(),
-                dialogBinding.addRoomDEtRoomName.text.toString()
+                dialogBinding.addRoomDEtRoonId.text.toString().trim(),
+                dialogBinding.addRoomDEtRoomName.text.toString().trim()
             )
             if (mode == Mode.ADD){
                 if (!roomsManagementViewModel.isIdExists(finalRoom.id)){

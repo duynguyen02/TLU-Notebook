@@ -10,6 +10,8 @@ import com.tianjun.tls_tkb.domain.repository.RoomRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -42,7 +44,15 @@ class RoomsManagementViewModel @Inject constructor(
 
 
     fun getRooms() = roomRepository.getAllRooms().asLiveData()
-    fun isIdExists(id : String) = roomRepository.isIdExists(id)
+    fun isIdExists(id : String) : Boolean{
+        val isExists = runBlocking {
+            val result = withContext(Dispatchers.IO) {
+                roomRepository.isIdExists(id)
+            }
+            result
+        }
+        return isExists
+    }
     fun addRoom(room: Room) {
         viewModelScope.launch(Dispatchers.IO){
             roomRepository.addRoom(room)
