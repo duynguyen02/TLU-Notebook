@@ -1,5 +1,6 @@
 package com.tianjun.tls_tkb.di
 
+import com.tianjun.tls_tkb.BuildConfig
 import com.tianjun.tls_tkb.data.remote.api.ServerService
 import com.tianjun.tls_tkb.data.remote.api.StudentService
 import dagger.Module
@@ -59,13 +60,15 @@ object WebServiceModule {
         val sslContext = SSLContext.getInstance(TlsVersion.TLS_1_2.javaName)
         sslContext.init(null, trustManagerFactory.trustManagers, null)
 
-        return OkHttpClient.Builder()
-            .sslSocketFactory(sslContext.socketFactory, trustManagerFactory.trustManagers[0] as X509TrustManager)
-            .addInterceptor(loggingInterceptor)
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS)
-            .build()
+        return OkHttpClient.Builder().apply {
+            sslSocketFactory(sslContext.socketFactory, trustManagerFactory.trustManagers[0] as X509TrustManager)
+            if (BuildConfig.DEBUG){
+                addInterceptor(loggingInterceptor)
+            }
+            connectTimeout(30, TimeUnit.SECONDS)
+            readTimeout(30, TimeUnit.SECONDS)
+            writeTimeout(30, TimeUnit.SECONDS)
+        }.build()
     }
 
     @Provides

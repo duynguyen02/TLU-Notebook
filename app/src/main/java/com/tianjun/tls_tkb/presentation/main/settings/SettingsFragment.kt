@@ -111,6 +111,7 @@ class SettingsFragment : Fragment() {
                 is Result.Error -> {
                     binding.settingsFFlLoading.visibility = View.GONE
                     showMessageDialog("Lỗi: ${it.error}")
+                    settingsViewModel.setNothingState()
                 }
                 is Result.Nothing -> {
 

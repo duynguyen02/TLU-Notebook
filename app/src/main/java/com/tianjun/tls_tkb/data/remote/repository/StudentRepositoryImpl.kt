@@ -40,7 +40,13 @@ class StudentRepositoryImpl(
 
     @Throws(CanNotConnectToServer::class)
     override suspend fun login(login: Login): LoginToken {
-        val loginRes = studentService.login(LoginDto.loginToDto(login))
+        val loginRes = studentService.login(
+            "education_client",
+            "password",
+            login.username,
+            login.password,
+            "password"
+        )
         return if (loginRes.isSuccessful && loginRes.body() != null) {
             LoginTokenDto.dtoToLoginToken(loginRes.body()!!)
         } else {
